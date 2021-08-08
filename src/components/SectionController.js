@@ -1,7 +1,7 @@
 import React from 'react'
 import './SectionController.scss'
 
-const SectionController = ({ currentSection, setCurrentSection }) => {
+const SectionController = ({ section, setSection }) => {
   
   const SECTIONS = {
     ALL: 'all',
@@ -12,13 +12,13 @@ const SectionController = ({ currentSection, setCurrentSection }) => {
     <div className="SectionController">
       <div className="SectionController__buttons">
         <button 
-          onClick={() => setCurrentSection(SECTIONS.ALL)} 
-          className={`SectionController__button ${currentSection === SECTIONS.ALL ? 'active' : ''}`}>
+          onClick={() => setSection(SECTIONS.ALL)} 
+          className={`SectionController__button ${section === SECTIONS.ALL ? 'active' : ''}`}>
             All
         </button>
         <button 
-          onClick={() => setCurrentSection(SECTIONS.FAVES)} 
-          className={`SectionController__button ${currentSection === SECTIONS.FAVES ? 'active' : ''}`}>
+          onClick={() => setSection(SECTIONS.FAVES)} 
+          className={`SectionController__button ${section === SECTIONS.FAVES ? 'active' : ''}`}>
             My faves
         </button>
       </div>
