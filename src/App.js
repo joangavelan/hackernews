@@ -7,7 +7,7 @@ import Dropdown from './components/Dropdown';
 
 const App = () => {
 
-  const [filter, setFilter] = useState(useLocalStorage('filter', 'reactjs'));
+  const [filter, setFilter] = useLocalStorage('filter', 'reactjs');
   const [page, setPage] = useState(0);
   const [section, setSection] = useLocalStorage('currentSection', 'all');
   const [hits, setHits] = useState([]);
@@ -16,7 +16,10 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <SectionController section={section} setSection={setSection}/>
+      <main style={{maxWidth: '114rem', margin: '0 auto'}}>
+        <SectionController section={section} setSection={setSection}/>
+        <Dropdown filter={filter} setFilter={setFilter}/>
+      </main>
     </div>
   )
 }
