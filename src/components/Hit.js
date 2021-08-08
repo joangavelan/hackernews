@@ -12,10 +12,10 @@ const Hit = ({ hit }) => {
   return (
     <a className="Hit" href={hit.story_url} target="_blank">
       <div className="Hit__content">
-        <siv className="Hit__meta-data">
+        <div className="Hit__meta-data">
           <img src={clock} alt="clock-icon" /> 
           <p>{createdAt} by {hit.author}</p>
-        </siv>
+        </div>
         <p className="Hit__title">
           {hit.story_title}
         </p>
