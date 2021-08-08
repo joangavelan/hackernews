@@ -38,6 +38,11 @@ const Dropdown = ({ filter, setFilter }) => {
     return () => document.addEventListener('mousedown', handleClickOutside);
   }, [])
 
+  //when an option is selected the dropdown will be closed
+  useEffect(() => {
+    setOpen(false);
+  }, [setFilter])
+
   return (
     <div ref={dropdownRef} className="Dropdown">
       {/* header */}
