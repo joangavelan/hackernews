@@ -4,6 +4,7 @@ import Header from './components/Header'
 import SectionController from './components/SectionController';
 import { useLocalStorage } from './utils';
 import Dropdown from './components/Dropdown';
+import Hits from './components/Hits';
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
       <main style={{maxWidth: '114rem', margin: '0 auto'}}>
         <SectionController section={section} setSection={setSection}/>
         <Dropdown filter={filter} setFilter={setFilter}/>
+        <Hits hits={section === 'all' ? hits : favHits}/>
       </main>
     </div>
   )
