@@ -9,7 +9,11 @@ const Hit = ({ hit }) => {
 
   const createdAt = useMemo(() => getTimeDifference(hit.created_at), [hit.created_at])
 
+  //checks if some value in an obj is either null or an empty string
+  const hasAllValues = (obj) => !Object.values(obj).some(value => value === null || value === '');
+
   return (
+    hasAllValues(hit) && 
     <a className="Hit" href={hit.story_url} target="_blank">
       <div className="Hit__content">
         <div className="Hit__meta-data">
