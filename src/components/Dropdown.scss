@@ -1,4 +1,6 @@
 .Dropdown {
+  position: relative;
+  width: 24rem;
 
   &__header {
     display: flex;
@@ -6,12 +8,12 @@
     justify-content: space-between;
     color: #343434;
     font-size: 1.4rem;
-    width: 24rem;
     height: 3.2rem;
     padding: 5px 1.2rem;
     border-radius: 4px;
     border: 1px solid #2e2e2e;
     cursor: pointer;
+    user-select: none;
 
     & i {
       width: 7px;
@@ -28,6 +30,36 @@
         border-style: none solid solid none;
         margin-bottom: 3px;
       }
+    }
+  }
+
+  &__options {
+    position: absolute;
+    width: 100%;
+    list-style: none;
+    box-shadow: 0 2px 2px 0 #dad8d8;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1rem;
+    cursor: pointer;
+
+    &:hover,
+    &.selected {
+      background-color: #eaeaea;
+    }
+
+    & > img {
+      width: 2.4rem;
+      height: 2.4rem;
+      object-fit: contain;
+      margin-right: 1.2rem;
+    }
+
+    & > p {
+      font-size: 1.4rem;
     }
   }
 }

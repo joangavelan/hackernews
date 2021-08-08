@@ -28,19 +28,19 @@ const Dropdown = () => {
   return (
     <div className="Dropdown">
       {/* header */}
-      <div className="Dropdown__header">
+      <div className="Dropdown__header" onClick={() => setOpen(open => !open)}>
         <p>Select your news</p>
         <i className={`arrow ${open ? 'up' : 'down'}`} />
       </div>
       {/* options */}
-      <ul className="Dropdown__options">
+      {open && <ul className="Dropdown__options">
         {options.map(option => (
-          <li className="Dropdown__option" key={option.id} id={option.id}>
+          <li className="Dropdown__option " key={option.id} id={option.id}>
             <img src={option.imgSrc} alt={`${option.name}-icon`} />
             <p>{option.name}</p>
           </li>
         ))}
-      </ul>
+      </ul>}
     </div>
   )
 }
