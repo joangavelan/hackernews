@@ -1,9 +1,23 @@
 .Hit {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+  border: solid 1px #979797;
+  background-color: #fff;
+  height: 9rem;
+  padding-inline-start: 2.6rem;
+  overflow: hidden;
+  cursor: default;
+
+  &__content {
+    max-width: 44rem;
+  }
 
   &__meta-data {
     display: flex;
     align-items: center;
+    margin-bottom: 6px;
 
     & > img {
       width: 1.6rem;
@@ -11,13 +25,38 @@
       object-fit: contain;
       margin-right: 5px;
     }
+
+    & > p {
+      font-size: 1.1rem;
+      color: #767676;
+    }
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.43;
+    letter-spacing: .25px;
+    color: #606060;
   }
 
   &__heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.8rem;
+    height: 100%;
+    background-color: #F5F5F5;
+
     & > img {
       width: 24px;
       height: 22px;
       object-fit: contain;
+      cursor: pointer;
     }
+  }
+
+  &:hover {
+    opacity: .6;
   }
 }
