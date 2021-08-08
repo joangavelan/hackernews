@@ -4,13 +4,11 @@ import clock from '../assets/images/clock.png'
 import emptyHeart from '../assets/images/empty-heart.png'
 import filledHeart from '../assets/images/filled-heart.png'
 import { getTimeDifference } from '../utils'
+import { hasAllValues } from '../utils'
 
 const Hit = ({ hit }) => {
 
   const createdAt = useMemo(() => getTimeDifference(hit.created_at), [hit.created_at])
-
-  //checks if some value in an obj is either null or an empty string
-  const hasAllValues = (obj) => !Object.values(obj).some(value => value === null || value === '');
 
   return (
     hasAllValues(hit) && 

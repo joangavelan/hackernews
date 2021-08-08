@@ -71,3 +71,6 @@ export function getTimeDifference(timezone) {
     return `${timeDiff} ${timeDiff === 1 ? 'year ago' : 'years ago'}`   
   }
 }
+
+//checks if some value in an obj is either null or an empty string
+export const hasAllValues = (obj) => !Object.values(obj).some(value => value === null || value === '');
