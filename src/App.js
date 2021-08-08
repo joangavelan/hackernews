@@ -42,7 +42,7 @@ const App = () => {
       <Header />
       <main style={{maxWidth: '114rem', margin: '0 auto'}}>
         <SectionController section={section} setSection={setSection}/>
-        <Dropdown filter={filter} setFilter={setFilter}/>
+        {section === 'all' && <Dropdown filter={filter} setFilter={setFilter}/>}
         <Hits hits={section === 'all' ? hits : favHits}/>
       </main>
     </div>

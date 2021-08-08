@@ -1,12 +1,10 @@
 import React from 'react'
 import Hit from './Hit'
+import './Hits.scss'
 
 const Hits = ({ hits }) => {
-
-  console.log(hits)
-  
   return (
-    <div className="Hits" style={{margin: '10rem 0'}}>
+    <div className="Hits">
       {hits.map(hit => <Hit key={hit.id} hit={hit} />)}
     </div>
   )
