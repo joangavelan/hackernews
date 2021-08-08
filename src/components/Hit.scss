@@ -1,3 +1,23 @@
 .Hit {
-  
+  display: flex;
+
+  &__meta-data {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      width: 1.6rem;
+      height: 1.6rem;
+      object-fit: contain;
+      margin-right: 5px;
+    }
+  }
+
+  &__heart {
+    & > img {
+      width: 24px;
+      height: 22px;
+      object-fit: contain;
+    }
+  }
 }
