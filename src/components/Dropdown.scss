@@ -1,3 +1,33 @@
 .Dropdown {
-  
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #343434;
+    font-size: 1.4rem;
+    width: 24rem;
+    height: 3.2rem;
+    padding: 5px 1.2rem;
+    border-radius: 4px;
+    border: 1px solid #2e2e2e;
+    cursor: pointer;
+
+    & i {
+      width: 7px;
+      height: 7px;
+      border: 1px solid #2e2e2e;
+      transform: rotate(45deg);
+      
+      &.up {
+        border-style: solid none none solid;
+        margin-top: 4px;
+      }
+
+      &.down {
+        border-style: none solid solid none;
+        margin-bottom: 3px;
+      }
+    }
+  }
 }

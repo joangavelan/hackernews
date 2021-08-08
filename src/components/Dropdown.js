@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import angularImgSrc from '../assets/images/angular.png'
 import reactImgSrc from '../assets/images/react.png'
 import vueImgSrc from '../assets/images/vue.png'
+import './Dropdown.scss'
 
 const options = [
   {
