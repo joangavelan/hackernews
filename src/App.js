@@ -19,14 +19,14 @@ const App = () => {
       const { data } = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=${filter}&page=${page}&hitsPerPage=8`);
 
       const hits = [];
-      
+
       data.hits.forEach(hit => {
         //we extract the wanted data and create a new obj with it
         const hitObj = {
+          id: hit.objectID,
           author: hit.author,
           story_title: hit.story_title,
           story_url: hit.story_url,
-          story_id: hit.story_id,
           created_at: hit.created_at
         }
         //we push the new obj into our own array that will be set to our hits state
