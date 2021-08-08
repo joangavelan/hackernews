@@ -44,9 +44,11 @@
     display: flex;
     align-items: center;
     padding: 1.2rem 1rem;
-    cursor: pointer;
 
-    &:hover,
+    &:hover {
+      background-color: #cecece;
+    }
+
     &.selected {
       background-color: #eaeaea;
     }
