@@ -10,7 +10,7 @@ const App = () => {
 
   const [filter, setFilter] = useLocalStorage('filter', 'reactjs');
   const [page, setPage] = useState(0);
-  const [section, setSection] = useLocalStorage('currentSection', 'all');
+  const [section, setSection] = useLocalStorage('section', 'all');
   const [hits, setHits] = useState([]);
   const [favHits, setFavHits] = useState([]);
 
@@ -42,7 +42,7 @@ const App = () => {
       <Header />
       <main style={{maxWidth: '114rem', margin: '0 auto'}}>
         <SectionController section={section} setSection={setSection}/>
-        {section === 'all' && <Dropdown filter={filter} setFilter={setFilter}/>}
+        <Dropdown section={section} filter={filter} setFilter={setFilter}/>
         <Hits hits={section === 'all' ? hits : favHits}/>
       </main>
     </div>

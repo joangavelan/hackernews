@@ -22,7 +22,7 @@ const options = [
   }
 ]
 
-const Dropdown = ({ filter, setFilter }) => {
+const Dropdown = ({ section, filter, setFilter }) => {
   const [open, setOpen] = useState(false);
 
   let dropdownRef = useRef(null);
@@ -44,6 +44,7 @@ const Dropdown = ({ filter, setFilter }) => {
   }, [setFilter])
 
   return (
+    section === 'all' &&
     <div ref={dropdownRef} className="Dropdown">
       {/* header */}
       <div className="Dropdown__header" onClick={() => setOpen(open => !open)}>
