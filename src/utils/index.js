@@ -95,5 +95,5 @@ export function getTimeDifference(timezone) {
   }
 }
 
-//checks if some value in an obj is either null or an empty string
+//checks if some value in an obj is either null or an empty string and returns the opposite indicating the object has all of its values correct
 export const hasAllValues = (obj) => !Object.values(obj).some(value => value === null || value === '');
