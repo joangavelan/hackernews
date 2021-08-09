@@ -2,10 +2,10 @@ import React from 'react'
 import Hit from './Hit'
 import './Hits.scss'
 
-const Hits = ({ hits }) => {
+const Hits = ({ hits, faveSet }) => {
   return (
     <div className="Hits">
-      {hits.map(hit => <Hit key={hit.id} hit={hit} />)}
+      {hits.map(hit => <Hit key={hit.id} hit={hit} faveSet={faveSet}/>)}
     </div>
   )
 }
