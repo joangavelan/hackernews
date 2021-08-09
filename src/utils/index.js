@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import emptyHeart from '../assets/images/empty-heart.png'
-import filledHeart from '../assets/images/filled-heart.png'
 
 //custom react hook for using and modifying items in local storage
 export function useLocalStorage(key, initialValue) {
@@ -37,6 +35,14 @@ export function shallowEqual(object1, object2) {
     }
   }
   return true;
+}
+
+//func to verify if a hit (post) exist inside of the favHits
+export function isFavorite(hit) {
+  if(localStorage.getItem('faves') === null) return false;
+  const favHits = JSON.parse(window.localStorage.getItem('faves'));
+  //returns true or false depending on whether the hit is already inside of the favHits array or not
+  return favHits.some(favHit => shallowEqual(favHit, hit));
 }
 
 //get time difference from a specific timezone
