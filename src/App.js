@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './components/Header'
 import SectionController from './components/SectionController';
-import { shallowEqual, useLocalStorage } from './utils';
+import { hasAllValues, shallowEqual, useLocalStorage } from './utils';
 import Dropdown from './components/Dropdown';
 import Hits from './components/Hits';
 
@@ -29,8 +29,8 @@ const App = () => {
           story_url: hit.story_url,
           created_at: hit.created_at
         }
-        //we push the new obj into our own array that will be set to our hits state
-        hits.push(hitObj);
+        //we push the new obj into the array only if all of its keys contains values
+        if(hasAllValues(hitObj)) hits.push(hitObj);
       })
       setHits(hits);
     }
