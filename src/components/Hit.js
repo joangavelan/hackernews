@@ -22,8 +22,12 @@ const Hit = ({ hit, faveSet }) => {
           {hit.story_title}
         </p>
       </div>
-      <div className="Hit__heart">
-        <img src={isFavorite(hit) ? filledHeart : emptyHeart} alt="heart-icon" onClick={(e) => faveSet(e, hit)}/>
+      <div className="Hit__heart-container">
+        <img 
+          className="Hit__heart"
+          alt="heart-icon" 
+          src={isFavorite(hit) ? filledHeart : emptyHeart} 
+          onClick={(e) => faveSet(e, hit)}/>
       </div>
     </a>
   )
