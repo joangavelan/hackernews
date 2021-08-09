@@ -1,25 +1,42 @@
 import { useState } from 'react'
+import emptyHeart from '../assets/images/empty-heart.png'
+import filledHeart from '../assets/images/filled-heart.png'
 
 //custom react hook for using and modifying items in local storage
 export function useLocalStorage(key, initialValue) {
+  
   const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key)
-      return item ? JSON.parse(item) : initialValue
-    } catch(error) {
-      return initialValue
-    }
+    const item = window.localStorage.getItem(key)
+    return item ? JSON.parse(item) : initialValue
   })
 
   const setValue = value => {
     try {
       setStoredValue(value);
       window.localStorage.setItem(key, JSON.stringify(value))
-    } catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
+
   return [storedValue, setValue]
+}
+
+//shallow equal object comparission
+export function shallowEqual(object1, object2) {
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let key of keys1) {
+    if (object1[key] !== object2[key]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 //get time difference from a specific timezone
