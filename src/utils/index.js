@@ -1,4 +1,30 @@
 import { useState } from 'react'
+import axios from 'axios'
+
+//checks if some value in an obj is either null or an empty string and returns the opposite indicating the object has all of its values correct
+export const hasAllValues = (obj) => !Object.values(obj).some(value => value === null || value === '');
+
+//get hits
+export async function getHits(filter, page) {
+  const { data } = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=${filter}&page=${page}&hitsPerPage=8`);
+
+  const hits = [];
+
+  data.hits.forEach(hit => {
+    //we extract the wanted data and create a new obj with it
+    const hitObj = {
+      id: hit.objectID,
+      author: hit.author,
+      story_title: hit.story_title,
+      story_url: hit.story_url,
+      created_at: hit.created_at
+    }
+    //we push the new obj into the array only if all of its keys contains values
+    if(hasAllValues(hitObj)) hits.push(hitObj);
+  })
+
+  return hits;
+}
 
 //custom react hook for using and modifying items in local storage
 export function useLocalStorage(key, initialValue) {
@@ -94,6 +120,3 @@ export function getTimeDifference(timezone) {
     return `${timeDiff} ${timeDiff === 1 ? 'year ago' : 'years ago'}`   
   }
 }
-
-//checks if some value in an obj is either null or an empty string and returns the opposite indicating the object has all of its values correct
-export const hasAllValues = (obj) => !Object.values(obj).some(value => value === null || value === '');
