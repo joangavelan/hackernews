@@ -15,6 +15,8 @@ const App = () => {
   const [favHits, setFavHits] = useLocalStorage('faves', []);
 
   useEffect(() => {
+    setHits([]);
+
     async function getHits(filter, page) {
       const { data } = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=${filter}&page=${page}&hitsPerPage=8`);
 
@@ -32,6 +34,7 @@ const App = () => {
         //we push the new obj into the array only if all of its keys contains values
         if(hasAllValues(hitObj)) hits.push(hitObj);
       })
+
       setHits(hits);
     }
     getHits(filter, page);
