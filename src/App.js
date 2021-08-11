@@ -58,7 +58,7 @@ const App = () => {
         <SectionController section={section} setSection={setSection}/>
         <Dropdown section={section} filter={filter} setFilter={setFilter}/>
         <Hits hits={section === 'all' ? hits : favHits} faveSet={faveSet} setPage={setPage}/>
-        <Pagination section={section} hits={hits}/>
+        <Pagination section={section} hits={hits} setPage={setPage}/>
       </main>
     </div>
   )

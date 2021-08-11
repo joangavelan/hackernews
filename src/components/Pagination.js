@@ -1,7 +1,7 @@
 import React from 'react'
 import './Pagination.scss'
 
-const Pagination = ({ section, hits }) => {
+const Pagination = ({ section, hits, setPage }) => {
 
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -21,8 +21,8 @@ const Pagination = ({ section, hits }) => {
       </div>
       <ul className="Pagination__page-numbers">
         {pageNumbers.map((pageNumber, index) => (
-          <div key={index} className="Pagination__item">
-            <li className="Pagination__page-number">{pageNumber}</li>
+          <div key={index} className="Pagination__item" onClick={() => setPage(pageNumber)}>
+            <li className="Pagination__page-number" >{pageNumber}</li>
           </div>
         ))}
       </ul>
