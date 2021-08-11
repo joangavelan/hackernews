@@ -61,7 +61,11 @@ const App = () => {
         <Dropdown section={section} filter={filter} setFilter={setFilter} setPage={setPage} response={response}/>
         <Body>
           {section === 'all' && !response && <Loader />}
-          {section === 'all' && response && !hits.length > 0 && <Warning />}
+          {section === 'all' && response && !hits.length > 0 && 
+            <Warning message="We're sorry! There were no results for this page"/>}
+          {section === 'faves' && !favHits.length > 0 && 
+            <Warning message="You have no faves so far! Start saving some!"/>}
+
             <Hits 
               hits={section === 'all' ? hits : favHits} 
               faveSet={faveSet} 
