@@ -58,7 +58,7 @@ const App = () => {
       <Header />
       <main style={{position: 'relative', maxWidth: '114rem', margin: '0 auto', padding: '0 2rem'}}>
         <SectionController section={section} setSection={setSection}/>
-        <Dropdown section={section} filter={filter} setFilter={setFilter} response={response}/>
+        <Dropdown section={section} filter={filter} setFilter={setFilter} setPage={setPage} response={response}/>
         <Body>
           {section === 'all' && !response && <Loader />}
           {section === 'all' && response && !hits.length > 0 && <Warning />}

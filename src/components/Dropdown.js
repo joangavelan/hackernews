@@ -22,7 +22,7 @@ const options = [
   }
 ]
 
-const Dropdown = ({ section, filter, setFilter, response }) => {
+const Dropdown = ({ section, filter, setFilter, setPage, response }) => {
   const [open, setOpen] = useState(false);
 
   let dropdownRef = useRef(null);
@@ -43,7 +43,12 @@ const Dropdown = ({ section, filter, setFilter, response }) => {
     setOpen(false);
   }, [setFilter])
 
-  const selectFilter = (value) => response ? setFilter(value) : false;
+  const selectFilter = (value) => {
+    if(response) {
+      setPage(1);
+      setFilter(value);
+    }
+  }
 
   return (
     section === 'all' &&
