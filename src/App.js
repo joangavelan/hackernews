@@ -9,6 +9,7 @@ import Pagination from './components/Pagination';
 const App = () => {
 
   const [filter, setFilter] = useLocalStorage('filter', 'reactjs');
+  const [response, setResponse] = useState(true);
   const [page, setPage] = useState(1);
   const [section, setSection] = useLocalStorage('section', 'all');
   const [hits, setHits] = useState([]);
@@ -16,10 +17,12 @@ const App = () => {
 
   useEffect(() => {
     setHits([]);
+    setResponse(false);
 
     async function fetchHits(filter, page) {
       const hits = await getHits(filter, page);
-      setHits(hits)
+      if(hits.length > 0) setHits(hits);      
+      setResponse(true);
     }
     
     fetchHits(filter, page);
