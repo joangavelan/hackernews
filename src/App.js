@@ -4,11 +4,12 @@ import SectionController from './components/SectionController';
 import { getHits, shallowEqual, useLocalStorage } from './utils';
 import Dropdown from './components/Dropdown';
 import Hits from './components/Hits';
+import Pagination from './components/Pagination';
 
 const App = () => {
 
   const [filter, setFilter] = useLocalStorage('filter', 'reactjs');
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(0);
   const [section, setSection] = useLocalStorage('section', 'all');
   const [hits, setHits] = useState([]);
   const [favHits, setFavHits] = useLocalStorage('faves', []);
@@ -57,6 +58,7 @@ const App = () => {
         <SectionController section={section} setSection={setSection}/>
         <Dropdown section={section} filter={filter} setFilter={setFilter}/>
         <Hits hits={section === 'all' ? hits : favHits} faveSet={faveSet} setPage={setPage}/>
+        <Pagination />
       </main>
     </div>
   )
