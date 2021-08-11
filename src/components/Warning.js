@@ -1,10 +1,10 @@
 import React from 'react'
 import './Warning.scss'
 
-const Warning = () => {
+const Warning = ({ message }) => {
   return (
     <div className="Warning">
-      <p className="Warning__message">We're sorry! There were no results for this page</p>
+      <p className="Warning__message">{message}</p>
     </div>
   )
 }
