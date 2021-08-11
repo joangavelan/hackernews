@@ -6,13 +6,23 @@
   border: solid 1px #979797;
   background-color: #fff;
   height: 9rem;
-  padding-inline-start: 2.6rem;
   overflow: hidden;
   cursor: default;
 
+  @media only screen and (max-width: 32em) {
+    width: 100%;
+    min-height: 9rem;
+    height: auto;
+  }
+
   &__content {
     width: calc(100% - 6.8rem);
-    padding-right: 1.5rem;
+    padding: 1.5rem;
+    padding-left: 2.6rem;
+
+    @media only screen and (max-width: 32em) {
+     padding-left: 2rem;
+    }
   }
 
   &__meta-data {
