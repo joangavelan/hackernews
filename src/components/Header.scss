@@ -7,11 +7,18 @@
   background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
 
   &__content {
-    width: 114rem;
+    width: 100%;
+    max-width: 114rem;
     margin: 0 auto;
   }
 
   &__logo {
+    display: block;
     width: 20.8rem;
+
+    @media only screen and (max-width: 32em) {
+      width: 17rem;
+      margin: 0 auto;
+    }
   }
 }
