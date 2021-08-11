@@ -1,7 +1,7 @@
 import React from 'react'
 import './Pagination.scss'
 
-const Pagination = () => {
+const Pagination = ({ section, hits }) => {
 
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -14,6 +14,7 @@ const Pagination = () => {
   }
 
   return (
+    hits.length > 0 && section === 'all' &&
     <div className="Pagination">
       <div className="Pagination__item">
         <i className="Pagination__arrow left"></i>
