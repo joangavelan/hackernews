@@ -5,18 +5,14 @@ const Pagination = ({ section, hits, page, setPage }) => {
 
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  function nextPage() {
+  const nextPage = () => page < pageNumbers.length ? setPage(page => page + 1) : false;
 
-  }
-
-  function previousPage() {
-
-  }
+  const previousPage = () => page > 1 ? setPage(page => page - 1) : false;
 
   return (
     hits.length > 0 && section === 'all' &&
     <div className="Pagination">
-      <div className="Pagination__item">
+      <div className="Pagination__item" onClick={() => previousPage()}>
         <i className="Pagination__arrow left"></i>
       </div>
       <ul className="Pagination__page-numbers">
@@ -26,7 +22,7 @@ const Pagination = ({ section, hits, page, setPage }) => {
           </div>
         ))}
       </ul>
-      <div className="Pagination__item">
+      <div className="Pagination__item" onClick={() => nextPage()}>
         <i className="Pagination__arrow right"></i>
       </div>
     </div>

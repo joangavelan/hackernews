@@ -9,7 +9,7 @@ import Pagination from './components/Pagination';
 const App = () => {
 
   const [filter, setFilter] = useLocalStorage('filter', 'reactjs');
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [section, setSection] = useLocalStorage('section', 'all');
   const [hits, setHits] = useState([]);
   const [favHits, setFavHits] = useLocalStorage('faves', []);
@@ -23,10 +23,10 @@ const App = () => {
     }
     
     fetchHits(filter, page);
-  }, [filter, page])
+  }, [page])
 
   useEffect(() => {
-    setPage(0);
+    setPage(1);
   }, [filter])
 
   //add and remove hit from favHits functionality
