@@ -5,6 +5,10 @@
   width: 24rem;
   z-index: 999;
 
+  @media only screen and (max-width: 32em) {
+    top: 15rem;
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -19,8 +23,8 @@
     user-select: none;
 
     & i {
-      width: 7px;
-      height: 7px;
+      width: .7rem;
+      height: .7rem;
       border: 1px solid #2e2e2e;
       transform: rotate(45deg);
       
