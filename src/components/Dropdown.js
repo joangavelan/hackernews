@@ -22,7 +22,7 @@ const options = [
   }
 ]
 
-const Dropdown = ({ section, filter, setFilter }) => {
+const Dropdown = ({ section, filter, setFilter, response }) => {
   const [open, setOpen] = useState(false);
 
   let dropdownRef = useRef(null);
@@ -43,6 +43,8 @@ const Dropdown = ({ section, filter, setFilter }) => {
     setOpen(false);
   }, [setFilter])
 
+  const selectFilter = (value) => response ? setFilter(value) : false;
+
   return (
     section === 'all' &&
     <div ref={dropdownRef} className="Dropdown">
@@ -58,7 +60,7 @@ const Dropdown = ({ section, filter, setFilter }) => {
             key={option.id} 
             id={option.id}
             className={`Dropdown__option ${filter === option.value ? 'selected' : ''}`}
-            onClick={() => setFilter(option.value)}
+            onClick={() => selectFilter(option.value)}
           > 
             <img src={option.imgSrc} alt={`${option.value}-icon`} />
             <p>{option.value}</p>
