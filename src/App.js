@@ -56,7 +56,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <main style={{maxWidth: '114rem', margin: '0 auto', padding: '0 2rem'}}>
+      <main style={{position: 'relative', maxWidth: '114rem', margin: '0 auto', padding: '0 2rem'}}>
         <SectionController section={section} setSection={setSection}/>
         <Dropdown section={section} filter={filter} setFilter={setFilter} response={response}/>
         <Body>
