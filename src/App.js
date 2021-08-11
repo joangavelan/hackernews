@@ -26,11 +26,7 @@ const App = () => {
     }
     
     fetchHits(filter, page);
-  }, [page])
-
-  useEffect(() => {
-    setPage(1);
-  }, [filter])
+  }, [filter, page])
 
   //add and remove hit from favHits functionality
   function faveSet(e, hit) {
@@ -60,7 +56,7 @@ const App = () => {
       <main style={{maxWidth: '114rem', margin: '0 auto'}}>
         <SectionController section={section} setSection={setSection}/>
         <Dropdown section={section} filter={filter} setFilter={setFilter}/>
-        <Hits hits={section === 'all' ? hits : favHits} faveSet={faveSet} setPage={setPage}/>
+        <Hits hits={section === 'all' ? hits : favHits} faveSet={faveSet} response={response}/>
         <Pagination section={section} hits={hits} page={page} setPage={setPage}/>
       </main>
     </div>
