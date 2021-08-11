@@ -1,6 +1,9 @@
 .Dropdown {
-  position: relative;
+  position: absolute;
+  top: 19rem;
+  left: 2rem;
   width: 24rem;
+  z-index: 999;
 
   &__header {
     display: flex;
@@ -38,7 +41,6 @@
     width: 100%;
     list-style: none;
     box-shadow: 0 2px 2px 0 #dad8d8;
-    z-index: 999;
   }
 
   &__option {
