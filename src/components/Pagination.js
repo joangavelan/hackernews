@@ -6,8 +6,8 @@ const Pagination = ({ section, page, setPage, response }) => {
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const nextPage = () => response && page < pageNumbers.length ? setPage(page => page + 1) : false;
-
   const previousPage = () => response && page > 1 ? setPage(page => page - 1) : false;
+  const goToPage = (pageNum) => response ? setPage(pageNum) : false;
 
   return (
     section === 'all' &&
@@ -17,8 +17,11 @@ const Pagination = ({ section, page, setPage, response }) => {
       </div>
       <ul className="Pagination__page-numbers">
         {pageNumbers.map(pageNumber => (
-          <div key={pageNumber} className={`Pagination__item ${page === pageNumber ? 'active' : ''}`} onClick={() => setPage(pageNumber)}>
-            <li className="Pagination__page-number" >{pageNumber}</li>
+          <div 
+            className={`Pagination__item ${page === pageNumber ? 'active' : ''}`}
+            onClick={() => goToPage(pageNumber)}
+            key={pageNumber}>
+              <li className="Pagination__page-number" >{pageNumber}</li>
           </div>
         ))}
       </ul>
