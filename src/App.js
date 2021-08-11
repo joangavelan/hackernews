@@ -5,6 +5,9 @@ import { getHits, shallowEqual, useLocalStorage } from './utils';
 import Dropdown from './components/Dropdown';
 import Hits from './components/Hits';
 import Pagination from './components/Pagination';
+import Body from './components/Body'
+import Loader from './components/Loader'
+import Warning from './components/Warning'
 
 const App = () => {
 
@@ -56,8 +59,15 @@ const App = () => {
       <main style={{maxWidth: '114rem', margin: '0 auto'}}>
         <SectionController section={section} setSection={setSection}/>
         <Dropdown section={section} filter={filter} setFilter={setFilter}/>
-        <Hits hits={section === 'all' ? hits : favHits} faveSet={faveSet} response={response}/>
-        <Pagination section={section} hits={hits} page={page} setPage={setPage}/>
+        <Body>
+          {section === 'all' && !response && <Loader />}
+          {section === 'all' && response && !hits.length > 0 && <Warning />}
+            <Hits 
+              hits={section === 'all' ? hits : favHits} 
+              faveSet={faveSet} 
+              response={response}/>
+        </Body>
+        <Pagination section={section} page={page} setPage={setPage} response={response}/>
       </main>
     </div>
   )
