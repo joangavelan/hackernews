@@ -2,8 +2,11 @@
   width: max-content;
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  margin-top: 8rem;
+  margin: 8rem auto;
+
+  @media only screen and (max-width: 32em) {
+    margin: 5rem auto;
+  }
 
   &__item {
     display: flex;
@@ -28,6 +31,12 @@
         border-color: #fff;
       }
     }
+
+    @media only screen and (max-width: 32em) {
+      width: 2.7rem;
+      height: 2.7rem;
+      margin: 0 2.5px;
+    }
   }
 
   &__page-numbers {
@@ -38,6 +47,10 @@
   &__page-number {
     font-size: 1.4rem;
     font-weight: normal;
+
+    @media only screen and (max-width: 32em) {
+      font-size: 1.2rem;
+    }
   }
 
   &__arrow {
