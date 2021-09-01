@@ -6,14 +6,12 @@ import Dropdown from "./components/Dropdown";
 import Hits from "./components/Hits";
 import Pagination from "./components/Pagination";
 import Body from "./components/Body";
-import Loader from "./components/Loader";
-import Warning from "./components/Warning";
+import { Route, Switch } from "react-router-dom";
 
 const App = () => {
   const [filter, setFilter] = useLocalStorage("filter", "reactjs");
   const [response, setResponse] = useState(true);
   const [page, setPage] = useState(1);
-  const [section, setSection] = useLocalStorage("section", "all");
   const [hits, setHits] = useState([]);
   const [favHits, setFavHits] = useLocalStorage("faves", []);
 
@@ -23,7 +21,7 @@ const App = () => {
 
     async function fetchHits(filter, page) {
       const hits = await getHits(filter, page);
-      if (hits.length > 0) setHits(hits);
+      setHits(hits);
       setResponse(true);
     }
 
@@ -64,35 +62,40 @@ const App = () => {
           padding: "0 2rem",
         }}
       >
-        <SectionController section={section} setSection={setSection} />
-        <Dropdown
-          section={section}
-          filter={filter}
-          setFilter={setFilter}
-          setPage={setPage}
-          response={response}
-        />
-        <Body>
-          {section === "all" && !response && <Loader />}
-          {section === "all" && response && !hits.length > 0 && (
-            <Warning message="We're sorry! There were no results for this page" />
-          )}
-          {section === "faves" && !favHits.length > 0 && (
-            <Warning message="You have no faves so far! Start saving some!" />
-          )}
+        <SectionController />
 
-          <Hits
-            hits={section === "all" ? hits : favHits}
-            faveSet={faveSet}
-            response={response}
-          />
+        <Body>
+          <Switch>
+            {/* All */}
+            <Route path="/" exact>
+              <Dropdown
+                filter={filter}
+                setFilter={setFilter}
+                setPage={setPage}
+                response={response}
+              />
+
+              <Hits
+                hits={hits}
+                faveSet={faveSet}
+                response={response}
+                warningMessage="We're sorry! There were no results for this page"
+              />
+
+              <Pagination page={page} setPage={setPage} response={response} />
+            </Route>
+
+            {/* Faves */}
+            <Route path="/faves">
+              <Hits
+                hits={favHits}
+                faveSet={faveSet}
+                response={response}
+                warningMessage="You have no faves so far! Start saving some!"
+              />
+            </Route>
+          </Switch>
         </Body>
-        <Pagination
-          section={section}
-          page={page}
-          setPage={setPage}
-          response={response}
-        />
       </main>
     </div>
   );

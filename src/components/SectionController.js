@@ -1,29 +1,31 @@
-import React from 'react'
-import './SectionController.scss'
+import React from "react";
+import "./SectionController.scss";
+import { NavLink } from "react-router-dom";
 
-const SectionController = ({ section, setSection }) => {
-  
-  const SECTIONS = {
-    ALL: 'all',
-    FAVES: 'faves'
-  }
-
+const SectionController = () => {
   return (
     <div className="SectionController">
-      <div className="SectionController__buttons">
-        <button 
-          onClick={() => setSection(SECTIONS.ALL)} 
-          className={`SectionController__button ${section === SECTIONS.ALL ? 'active' : ''}`}>
-            All
-        </button>
-        <button 
-          onClick={() => setSection(SECTIONS.FAVES)} 
-          className={`SectionController__button ${section === SECTIONS.FAVES ? 'active' : ''}`}>
-            My faves
-        </button>
+      <div className="SectionController__links">
+        <NavLink
+          exact
+          to="/"
+          className="SectionController__link"
+          activeClassName="SectionController__link active"
+        >
+          All
+        </NavLink>
+
+        <NavLink
+          exact
+          to="/faves"
+          className="SectionController__link"
+          activeClassName="SectionController__link active"
+        >
+          My faves
+        </NavLink>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SectionController
+export default SectionController;

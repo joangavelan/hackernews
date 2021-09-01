@@ -1,13 +1,8 @@
 .Dropdown {
   position: absolute;
-  top: 19rem;
-  left: 2rem;
+  top: -7.5rem;
   width: 24rem;
   z-index: 999;
-
-  @media only screen and (max-width: 32em) {
-    top: 15rem;
-  }
 
   &__header {
     display: flex;

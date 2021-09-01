@@ -22,7 +22,7 @@ const options = [
   },
 ];
 
-const Dropdown = ({ section, filter, setFilter, setPage, response }) => {
+const Dropdown = ({ filter, setFilter, setPage, response }) => {
   const [open, setOpen] = useState(false);
 
   let dropdownRef = useRef(null);
@@ -51,36 +51,34 @@ const Dropdown = ({ section, filter, setFilter, setPage, response }) => {
   };
 
   return (
-    section === "all" && (
-      <div ref={dropdownRef} className="Dropdown">
-        {/* header */}
-        <div
-          className="Dropdown__header"
-          onClick={() => setOpen((open) => !open)}
-        >
-          <p>Select your news</p>
-          <i className={`arrow ${open ? "up" : "down"}`} />
-        </div>
-        {/* options */}
-        {open && (
-          <ul className="Dropdown__options">
-            {options.map((option) => (
-              <li
-                key={option.id}
-                id={option.id}
-                className={`Dropdown__option ${
-                  filter === option.value ? "selected" : ""
-                }`}
-                onClick={() => selectFilter(option.value)}
-              >
-                <img src={option.imgSrc} alt={`${option.value}-icon`} />
-                <p>{option.value}</p>
-              </li>
-            ))}
-          </ul>
-        )}
+    <div ref={dropdownRef} className="Dropdown">
+      {/* header */}
+      <div
+        className="Dropdown__header"
+        onClick={() => setOpen((open) => !open)}
+      >
+        <p>Select your news</p>
+        <i className={`arrow ${open ? "up" : "down"}`} />
       </div>
-    )
+      {/* options */}
+      {open && (
+        <ul className="Dropdown__options">
+          {options.map((option) => (
+            <li
+              key={option.id}
+              id={option.id}
+              className={`Dropdown__option ${
+                filter === option.value ? "selected" : ""
+              }`}
+              onClick={() => selectFilter(option.value)}
+            >
+              <img src={option.imgSrc} alt={`${option.value}-icon`} />
+              <p>{option.value}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

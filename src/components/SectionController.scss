@@ -7,12 +7,14 @@
     padding: 6rem 2rem;
   }
 
-  &__buttons {
+  &__links {
     width: max-content;
     margin: 0 auto;
   }
    
-  &__button {
+  &__link {
+    display: inline-block;
+    text-align: center;
     font-family: 'Roboto';
     font-size: 1.6rem;
     font-weight: 500;

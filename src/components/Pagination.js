@@ -1,7 +1,7 @@
 import React from 'react'
 import './Pagination.scss'
 
-const Pagination = ({ section, page, setPage, response }) => {
+const Pagination = ({  page, setPage, response }) => {
 
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -10,7 +10,6 @@ const Pagination = ({ section, page, setPage, response }) => {
   const goToPage = (pageNum) => response ? setPage(pageNum) : false;
 
   return (
-    section === 'all' &&
     <div className="Pagination">
       <div className="Pagination__item" onClick={() => previousPage()}>
         <i className="Pagination__arrow left"></i>

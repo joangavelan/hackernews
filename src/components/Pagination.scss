@@ -1,9 +1,11 @@
 .Pagination {
+  position: absolute;
+  bottom: -7.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   width: max-content;
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  padding-bottom: 4rem;
 
   &__item {
     display: flex;
