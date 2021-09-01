@@ -6,6 +6,7 @@ Technologies and services used in the development process:
 
 - [Create React App](https://github.com/facebook/create-react-app)
 - [Hacker News API](https://hn.algolia.com/api)
+- [React Router](https://reactrouter.com/)
 - [SCSS](https://sass-lang.com/)
 
 <a href="https://hackernews-jg.netlify.app" target="_blank">
