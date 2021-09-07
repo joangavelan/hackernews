@@ -57,7 +57,7 @@ const Dropdown = ({ filter, setFilter, setPage, response }) => {
         className="Dropdown__header"
         onClick={() => setOpen((open) => !open)}
       >
-        <p>Select your news</p>
+        <p>{filter}</p>
         <i className={`arrow ${open ? "up" : "down"}`} />
       </div>
       {/* options */}
